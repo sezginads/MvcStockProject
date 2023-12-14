@@ -7,27 +7,33 @@
 }
 
 <h2 class="text-center">Ürünler</h2>
-
-<table class="table table-bordered  table-striped table-hover">
-    <tr style="background-color:#41bdbd">
-        <th>Ürün Id</th>
-        <th>Ürün Ad</th>
-        <th>Marka</th>
-        <th>Kategori</th>
-        <th>Fiyat</th>
-        <th>Stok</th>
-    </tr>
-    <tbody>
-        @foreach (var urun in Model)
-        {
-            <tr>
-                <td>@urun.UrunId</td>
-                <td>@urun.UrunAd</td>
-                <td>@urun.Marka</td>
-                <td>@urun.UrunKategori</td>
-                <td>@urun.Fiyat</td>
-                <td>@urun.Stok</td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="container">
+    <a href="/Urunler/UrunEkle" class="btn btn-warning end-0">Ürün Ekle</a>
+    <table class="table table-bordered  table-striped table-hover">
+        <tr style="background-color:#41bdbd">
+            <th>Ürün Id</th>
+            <th>Ürün Ad</th>
+            <th>Marka</th>
+            <th>Kategori</th>
+            <th>Fiyat</th>
+            <th>Stok</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        <tbody>
+            @foreach (var urun in Model)
+            {
+                <tr>
+                    <td>@urun.UrunId</td>
+                    <td>@urun.UrunAd</td>
+                    <td>@urun.Marka</td>
+                    <td>@urun.UrunKategori</td>
+                    <td>@urun.Fiyat</td>
+                    <td>@urun.Stok</td>
+                    <td><a href="/Urunler/Sil/@urun.UrunId" class="btn btn-danger">Sil</a> </td>
+                    <td><a href="/Urunler/Guncelle/@urun.UrunId" class="btn btn-info">Güncelle</a> </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

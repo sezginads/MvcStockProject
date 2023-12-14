@@ -8,23 +8,26 @@
 }
 
 <h2 class="text-center">Kategoriler</h2>
-<table class="table table-bordered  table-striped table-hover">
-    <tr style="background-color:#41bdbd">
-        <th>Kategori Id</th>
-        <th>Kategori Ad</th>
-        <th>Sil</th>
-        <th>Güncelle</th>
-    </tr>
-    <tbody>
-        @foreach (var ktgr in Model)
+<div class="container">
+    <a href="/Kategori/KategoriEkle" class="btn btn-warning end-0">Kategori Ekle</a>
+    <table class="table table-bordered  table-striped table-hover">
+        <tr style="background-color:#41bdbd">
+            <th>Kategori Id</th>
+            <th>Kategori Ad</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        <tbody>
+            @foreach (var ktgr in Model)
             {
                 <tr>
                     <td>@ktgr.KategoriId</td>
                     <td>@ktgr.KategoriAd</td>
-                    <td><a href="/Kategori/Sil" class="btn btn-danger">Sil</a> </td>
-                    <td><a href="/Kategori/Guncelle" class="btn btn-info">Güncelle</a> </td>
+                    <td><a href="/Kategori/Sil/@ktgr.KategoriId" class="btn btn-danger">Sil</a> </td>
+                    <td><a href="/Kategori/Guncelle/@ktgr.KategoriId" class="btn btn-info">Güncelle</a> </td>
                 </tr>
             }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>
 

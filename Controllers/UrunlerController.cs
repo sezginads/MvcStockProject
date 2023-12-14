@@ -17,5 +17,25 @@ namespace MvcStok.Controllers
             var degerler = db.TBLURUNLER.ToList ();
             return View(degerler);
         }
+        [HttpGet]
+        public ActionResult UrunEkle() 
+        {
+            List<SelectListItem> degerler = (from i in db.TBLKATEGORILER.ToList()
+                                             select new SelectListItem
+                                             {
+                                                 Text = i.KategoriAd,
+                                                 Value = i.KategoriId.ToString(),
+                                             }).ToList();
+            ViewBag.Degerler = degerler;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult UrunEkle(TBLURUNLER p1)
+        {
+            db.TBLURUNLER.Add (p1);
+            db.SaveChanges ();
+            return View();
+
+        }
     }
 }

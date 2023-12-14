@@ -6,22 +6,29 @@
 }
 
 <h2 class="text-center">Müşteriler</h2>
-<table class="table table-bordered  table-striped table-hover">
-    <tr style="background-color:#41bdbd">
-        <th>Müşteri Id</th>
-        <th>Müşteri Ad</th>
-        <th>Müşteri Soyad</th>
-    </tr>
-    <tbody>
-        @foreach (var musteri in Model)
-        {
-            <tr>
-                <td>@musteri.MusteriId</td>
-                <td>@musteri.MusteriAd</td>
-                <td>@musteri.MusteriSoyad</td>
+<div class="container">
+    <a href="/Musteriler/MusteriEkle" class="btn btn-warning end-0">Müşterii Ekle</a>
+    <table class="table table-bordered  table-striped table-hover">
+        <tr style="background-color:#41bdbd">
+            <th>Müşteri Id</th>
+            <th>Müşteri Ad</th>
+            <th>Müşteri Soyad</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        <tbody>
+            @foreach (var musteri in Model)
+            {
+                <tr>
+                    <td>@musteri.MusteriId</td>
+                    <td>@musteri.MusteriAd</td>
+                    <td>@musteri.MusteriSoyad</td>
+                    <td><a href="/Musteriler/Sil/@musteri.MusteriId" class="btn btn-danger">Sil</a> </td>
+                    <td><a href="/Musteriler/Guncelle/@musteri.MusteriId" class="btn btn-info">Güncelle</a> </td>
 
-            </tr>
-        }
-    </tbody>
-</table>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>
 
