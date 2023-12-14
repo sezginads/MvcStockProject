@@ -12,6 +12,8 @@
     <tr style="background-color:#41bdbd">
         <th>Kategori Id</th>
         <th>Kategori Ad</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
     </tr>
     <tbody>
         @foreach (var ktgr in Model)
@@ -19,6 +21,8 @@
                 <tr>
                     <td>@ktgr.KategoriId</td>
                     <td>@ktgr.KategoriAd</td>
+                    <td><a href="/Kategori/Sil" class="btn btn-danger">Sil</a> </td>
+                    <td><a href="/Kategori/Guncelle" class="btn btn-info">Güncelle</a> </td>
                 </tr>
             }
     </tbody>
