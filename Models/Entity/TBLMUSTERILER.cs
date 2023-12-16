@@ -26,5 +26,6 @@ namespace MvcStok.Models.Entity
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBLSATISLAR> TBLSATISLAR { get; set; }
+        public object TBLKATEGORILER { get; internal set; }
     }
 }

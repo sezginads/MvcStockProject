@@ -32,10 +32,20 @@ namespace MvcStok.Controllers
         [HttpPost]
         public ActionResult UrunEkle(TBLURUNLER p1)
         {
-            db.TBLURUNLER.Add (p1);
+            var ktg = db.TBLKATEGORILER.Where(m => m.KategoriId == p1.TBLKATEGORILER.KategoriId).FirstOrDefault();
+            p1.TBLKATEGORILER = ktg;
+            db.TBLURUNLER.Add(p1);
             db.SaveChanges ();
-            return View();
+            return RedirectToAction("Index");
 
         }
+        public ActionResult Sil(int id)
+        {
+            var urun = db.TBLURUNLER.Find(id);
+            db.TBLURUNLER.Remove(urun);
+            db.SaveChanges();   
+            return RedirectToAction("Index");
+        }
+        
     }
 }

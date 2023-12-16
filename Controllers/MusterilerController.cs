@@ -24,9 +24,19 @@ namespace MvcStok.Controllers
         [HttpPost]
         public ActionResult MusteriEkle(TBLMUSTERILER p1)
         {
+            
             db.TBLMUSTERILER.Add (p1);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult Sil(int id)
+        {
+            var musteri = db.TBLMUSTERILER.Find (id);
+            db.TBLMUSTERILER.Remove(musteri);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+       
     }
 }

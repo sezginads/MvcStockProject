@@ -23,11 +23,35 @@ namespace MvcStok.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult KategoriEkle(TBLKATEGORILER p1)
+        public ActionResult KategoriGetir(TBLKATEGORILER p1)
         {
             db.TBLKATEGORILER.Add (p1);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult Sil(int id)
+        {
+            var kategori = db.TBLKATEGORILER.Find(id);
+            db.TBLKATEGORILER.Remove(kategori);
+            db.SaveChanges();   
+            return RedirectToAction("Index");
+        }
+        
+        public ActionResult KategoriGetir(int id)
+        {
+            var kategori = db.TBLKATEGORILER.Find (id);
+            return View("KategoriGetir",kategori);
+        }
+        
+        public ActionResult Guncelle(TBLKATEGORILER p1)
+        {
+            var kategori = db.TBLKATEGORILER.Find(p1.KategoriId);
+            kategori.KategoriAd = p1.KategoriAd;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+            
+        }
+
+
     }
 }
